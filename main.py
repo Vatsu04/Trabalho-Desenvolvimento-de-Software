@@ -4,7 +4,7 @@ def menu():
     print('')
     print('1 - O que é matemática financeira e para que serve.')
     print('2 - Cálculo de porcentagem.')
-    
+
     print('3 - Cálculo de lucro')
     print('4 - Cálculo de prejuízo')  
 
@@ -16,7 +16,6 @@ def menu():
     print('9 - Calcular Acrescimo')
     print('0 - Sair')
     print('')
-
 
 
 
