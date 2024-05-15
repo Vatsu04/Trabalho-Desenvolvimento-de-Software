@@ -88,7 +88,7 @@ def submenu_porcentagem():
     ''')
     opcao = int(input("Escolha uma opção do submenu: "))
     if opcao == 1:
-        print("Texto acadêmico sobre porcentagem:\nAqui você pode colocar o texto acadêmico sobre porcentagem.")
+        print("Texto acadêmico sobre porcentagem:\nAqui você pode colocar o texto acadêmico sobre porcentagem.") # TEXTO AQUI
     elif opcao == 2:
         valor = float(input("Digite o valor: "))
         percentual = float(input("Digite a porcentagem: "))
@@ -109,7 +109,7 @@ def submenu_lucro_prejuizo():
     ''')
     opcao = int(input("Escolha uma opção do submenu: "))
     if opcao == 1:
-        print("Texto acadêmico sobre lucro e prejuízo:\nAqui você pode colocar o texto acadêmico sobre lucro e prejuízo.")
+        print("Texto acadêmico sobre lucro e prejuízo:\nAqui você pode colocar o texto acadêmico sobre lucro e prejuízo.") #TEXTO AQUI
     elif opcao == 2:
         lucro_total = float(input("Digite o lucro total: "))
         custo = float(input("Digite o custo: "))
@@ -461,8 +461,8 @@ def submenu_taxa_interna_retorno():
     2 - Cálculo da Taxa Interna de Retorno (TIR).
     ''')
     opcao = int(input("Escolha uma opção do submenu: "))
-    if opcao == 1:
-        print("Texto acadêmico sobre Taxa Interna de Retorno (TIR):\nAqui você pode colocar o texto acadêmico sobre TIR.")
+    if opcao == 1: 
+        print("Texto acadêmico sobre Taxa Interna de Retorno (TIR):\nAqui você pode colocar o texto acadêmico sobre TIR.") #TEXTO AQUI
     elif opcao == 2:
         vpl = float(input("Digite o VPL: "))
         pv1 = float(input("Digite o primeiro valor presente: "))
@@ -482,7 +482,7 @@ def submenu_valor_presente_liquido():
     ''')
     opcao = int(input("Escolha uma opção do submenu: "))
     if opcao == 1:
-        print("Texto acadêmico sobre Valor Presente Líquido (VPL):\nAqui você pode colocar o texto acadêmico sobre VPL.")
+        print("Texto acadêmico sobre Valor Presente Líquido (VPL):\nAqui você pode colocar o texto acadêmico sobre VPL.") #TEXTO AQUI
     elif opcao == 2:
         investimento_inicial = float(input("Digite o investimento inicial: "))
         fluxos = []
