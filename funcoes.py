@@ -18,8 +18,6 @@ def calcular_montante(capital, taxa_juros, tempo):
     montante = capital * (1 + taxa_juros) ** tempo
     return montante
 
-
-
 def juros_simples(valor_principal, taxa_juros, tempo):
 
     juros = valor_principal * (taxa_juros / 100) * tempo

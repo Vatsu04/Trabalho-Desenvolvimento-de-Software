@@ -14,6 +14,8 @@ def menu():
 
     print('8 - Calcular Desconto')
     print('9 - Calcular Acrescimo')
+    
+    print('10 - Calculo da Taxa de Retorno do Investimento')
     print('0 - Sair')
     print('')
 
