@@ -1,3 +1,5 @@
+import connect as con
+
 
 def menu():
     print('')
