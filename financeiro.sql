@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 15/06/2024 às 00:33
+-- Tempo de geração: 15/06/2024 às 01:38
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.0.30
 
@@ -24,14 +24,16 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `atividades`
+-- Estrutura para tabela `relatorios`
 --
 
-CREATE TABLE `atividades` (
+CREATE TABLE `relatorios` (
   `Id_Atividade` int(11) NOT NULL,
   `Id_Usuario` int(11) NOT NULL,
   `Data` date NOT NULL,
-  `Ferramentas_Utilizadas` varchar(255) DEFAULT NULL
+  `Ferramentas_Utilizadas` varchar(255) NOT NULL,
+  `Entrada` varchar(255) NOT NULL,
+  `Saida` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -59,9 +61,9 @@ INSERT INTO `usuarios` (`Id_Usuario`, `Nome`, `Email`, `Senha`) VALUES
 --
 
 --
--- Índices de tabela `atividades`
+-- Índices de tabela `relatorios`
 --
-ALTER TABLE `atividades`
+ALTER TABLE `relatorios`
   ADD PRIMARY KEY (`Id_Atividade`),
   ADD KEY `Id_Usuario` (`Id_Usuario`);
 
@@ -76,6 +78,12 @@ ALTER TABLE `usuarios`
 --
 
 --
+-- AUTO_INCREMENT de tabela `relatorios`
+--
+ALTER TABLE `relatorios`
+  MODIFY `Id_Atividade` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -86,10 +94,10 @@ ALTER TABLE `usuarios`
 --
 
 --
--- Restrições para tabelas `atividades`
+-- Restrições para tabelas `relatorios`
 --
-ALTER TABLE `atividades`
-  ADD CONSTRAINT `atividades_ibfk_1` FOREIGN KEY (`Id_Usuario`) REFERENCES `usuarios` (`Id_Usuario`);
+ALTER TABLE `relatorios`
+  ADD CONSTRAINT `relatorios_ibfk_1` FOREIGN KEY (`Id_Usuario`) REFERENCES `usuarios` (`Id_Usuario`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
