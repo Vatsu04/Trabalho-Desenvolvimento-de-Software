@@ -28,6 +28,7 @@ def cadastrar_usuario(usuario):
     con.connection.commit()
     cursor.close()
     print("Usuário cadastrado com sucesso!")
+    return True
 
 def cadastro():
     con.connect()
@@ -38,12 +39,12 @@ def cadastro():
     email = input("Digite seu email: ")
     if not verificar_email(email):
         print("Email inválido.")
-        return
+        return False
     
     senha = input("Digite sua senha: ")
     if not verificar_senha(senha):
         print("Senha inválida. Deve ter pelo menos 8 caracteres.")
-        return
+        return False
 
     hashed_senha = crypt.hashpw(senha.encode('utf-8'), crypt.gensalt())
 

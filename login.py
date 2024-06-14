@@ -6,14 +6,15 @@ def login(username, password):
         connection = con.connect()
         cursor = connection.cursor()
 
-        query = "SELECT Id_Usuario, username, password FROM Usuarios WHERE username = %s"
+        query = "SELECT Id_Usuario, Nome, Email FROM usuarios WHERE username = %s"
         cursor.execute(query, (username,))
         user_record = cursor.fetchone()
         
         if user_record is None:
             return False, "Username not found"
         
-        user_id, db_username, db_password = user_record
+        user_id, db_name, db_email, db_password = user_record
+
 
         if bcrypt.checkpw(password.encode('utf-8'), db_password.encode('utf-8')):
             return True, user_id
@@ -26,10 +27,3 @@ def login(username, password):
     finally:
         cursor.close()
         connection.close()
-username = input("Enter your username: ")
-password = input("Enter your password: ")
-login_successful, result = login(username, password)
-if login_successful:
-    print(f"Login successful! User ID: {result}")
-else:
-    print(f"Login failed: {result}")
