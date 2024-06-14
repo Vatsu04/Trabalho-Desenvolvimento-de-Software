@@ -25,14 +25,12 @@ def calcular_roi(ganho_investimento, custo_investimento):
 def porcentagem(valor, porcentagem):
     return (valor * porcentagem) / 100
 
-def lucro(L, C, V):
-    V = L + C
-    L = V - C
+def lucro(L, C):
+
     percentual = (L / C) * 100 
     return L, percentual
 
-def prejuizo(L, C, V):
-    V = L + C
+def prejuizo(L, C):
     P = C - L
     percentual = (P / C) * 100 
     return P, percentual
