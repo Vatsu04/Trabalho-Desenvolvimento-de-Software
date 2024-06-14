@@ -1,12 +1,25 @@
-import connect as con
+import mysql.connector 
 import bcrypt
+import getpass
+
+def connect():
+    connection = mysql.connector.connect(host="localhost", user="root", password="", database="financeiro")
+    if connection.is_connected():
+        print("Connected successfully")
+        return connection
+    else:
+        print("Failed to connect")
+        return None
 
 def login(username, password):
     try:
-        connection = con.connect()
+        connection = connect()
+        if connection is None:
+            return False, "Failed to connect to the database"
+        
         cursor = connection.cursor()
 
-        query = "SELECT Id_Usuario, Nome, Email FROM usuarios WHERE username = %s"
+        query = "SELECT Id_Usuario, Nome, Email, Senha FROM usuarios WHERE Email = %s"
         cursor.execute(query, (username,))
         user_record = cursor.fetchone()
         
@@ -14,7 +27,6 @@ def login(username, password):
             return False, "Username not found"
         
         user_id, db_name, db_email, db_password = user_record
-
 
         if bcrypt.checkpw(password.encode('utf-8'), db_password.encode('utf-8')):
             return True, user_id
@@ -27,3 +39,16 @@ def login(username, password):
     finally:
         cursor.close()
         connection.close()
+
+def log_in():
+    email = input("Digite seu email de usuário: ")
+    password = getpass.getpass("Digite sua senha: ")
+    login_successful, result = login(email, password)
+    if login_successful:
+        print(f"Login bem-sucedido! ID do usuário: {result}")
+        return True
+    else:
+        print(f"Falha no login: {result}")
+        return False
+
+log_in()
