@@ -50,5 +50,3 @@ def log_in():
     else:
         print(f"Falha no login: {result}")
         return False
-
-log_in()
