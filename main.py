@@ -1,6 +1,34 @@
 import funcoes as func
 import cadastro as cad
 import login
+import mysql.connector
+from datetime import datetime
+
+
+def connect():
+    connection = mysql.connector.connect(
+        host="localhost", 
+        user="root", 
+        password="", 
+        database="financeiro"
+    )
+    return connection
+
+def registrar_relatorio(id_usuario, ferramenta_utilizada, entrada, saida):
+    connection = connect()
+    cursor = connection.cursor()
+    data = datetime.now().strftime('%Y-%m-%d')
+    
+    query = """
+    INSERT INTO relatorios (Id_Usuario, Data, Ferramentas_Utilizadas, Entrada, Saida)
+    VALUES (%s, %s, %s, %s, %s)
+    """
+    valores = (id_usuario, data, ferramenta_utilizada, entrada, saida)
+    
+    cursor.execute(query, valores)
+    connection.commit()
+    cursor.close()
+    connection.close()
 
 def main():
     accessed_submenus = set()
