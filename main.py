@@ -2,9 +2,6 @@ import funcoes as func
 import cadastro as cad
 
 
-
-
-
 def main():
     while True:
         func.menu()

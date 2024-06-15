@@ -110,6 +110,12 @@ def menu():
 
 
 
+######################################################################################
+
+#Funções utilzizadas ao longo do código
+
+
+
 def calcular_roi(ganho_investimento, custo_investimento):
     roi = (ganho_investimento - custo_investimento) / custo_investimento * 100
     return roi
@@ -171,6 +177,9 @@ def calcular_acrescimo(preco_inicial, taxa_acrescimo):
     acrescimo = preco_inicial * (taxa_acrescimo/100)
     preco_novo = preco_inicial + acrescimo
     return acrescimo, preco_novo
+
+#################
+#### Submenu Porcentagem, uma janela
 
 def submenu_porcentagem(id_usuario):
     print('''

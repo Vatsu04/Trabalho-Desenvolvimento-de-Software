@@ -11,7 +11,7 @@ def connect():
         print("Failed to connect")
         return None
 
-def login(username, password):
+def login(email, password):
     try:
         connection = connect()
         if connection is None:
@@ -20,7 +20,7 @@ def login(username, password):
         cursor = connection.cursor()
 
         query = "SELECT Id_Usuario, Nome, Email, Senha FROM usuarios WHERE Email = %s"
-        cursor.execute(query, (username,))
+        cursor.execute(query, (email,))
         user_record = cursor.fetchone()
         
         if user_record is None:
