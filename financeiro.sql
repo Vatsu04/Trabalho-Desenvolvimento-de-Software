@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 15/06/2024 às 01:38
+-- Tempo de geração: 15/06/2024 às 15:26
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.0.30
 
@@ -35,6 +35,15 @@ CREATE TABLE `relatorios` (
   `Entrada` varchar(255) NOT NULL,
   `Saida` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `relatorios`
+--
+
+INSERT INTO `relatorios` (`Id_Atividade`, `Id_Usuario`, `Data`, `Ferramentas_Utilizadas`, `Entrada`, `Saida`) VALUES
+(3, 1, '2024-06-14', 'Porcentagem', '20.0,2.0', '0.4'),
+(4, 1, '2024-06-14', 'Montante', '30.0,40.0,2', '58.79999999999999'),
+(5, 1, '2024-06-15', 'O Valor Presente Líquido (VPL)', '20.0,0.0,20.0', '-19.895362528987405');
 
 -- --------------------------------------------------------
 
@@ -81,7 +90,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `relatorios`
 --
 ALTER TABLE `relatorios`
-  MODIFY `Id_Atividade` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id_Atividade` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
