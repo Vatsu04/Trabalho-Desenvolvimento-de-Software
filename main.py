@@ -1,6 +1,9 @@
 import funcoes as func
 import cadastro as cad
-import login
+
+
+
+
 
 def main():
     while True:
@@ -19,51 +22,44 @@ def main():
             print("Ela é aplicada em diversas áreas, como finanças pessoais, investimentos, empréstimos, entre outros.")
 
         elif opcao == 2:
-            func.submenu_porcentagem()
+            func.submenu_porcentagem(logged_in)
         
         elif opcao == 3:
-            func.submenu_lucro_prejuizo()
+            func.submenu_lucro_prejuizo(logged_in)
 
         elif opcao == 4:
-            func.submenu_juros()
+            func.submenu_juros(logged_in)
 
         elif opcao == 5:
-            func.submenu_desconto_acrescimo()
+            func.submenu_desconto_acrescimo(logged_in)
 
         elif opcao == 6:
-            func.submenu_roi()
+            func.submenu_roi(logged_in)
 
         elif opcao == 7:
-            func.submenu_valor_presente_liquido()
+            func.submenu_valor_presente_liquido(logged_in)
 
         elif opcao == 8:
-            func.submenu_taxa_interna_retorno()
+            func.submenu_taxa_interna_retorno(logged_in)
 
         else:
             print("Opção inválida. Por favor, selecione uma opção válida.")
 
-def log_in():
-    username = input("Digite seu nome de usuário: ")
-    password = input("Digite sua senha: ")
-    login_successful, result = login.login(username, password)
-    if login_successful:
-        print(f"Login bem-sucedido! ID do usuário: {result}")
-        return True
-    else:
-        print(f"Falha no login: {result}")
-        return False
+
 
 if __name__ == "__main__":
     while True:
         possui_cadastro = input("Possui cadastro (s/n)? ")
         if possui_cadastro.lower() == 's':
-            logged_in = log_in()
+            logged_in = func.log_in()
+
         elif possui_cadastro.lower() == 'n':
-            logged_in = cad.cadastro()
+            logged_in = func.cadastro()
         else:
             print("Opção inválida. Digite 's' para sim ou 'n' para não.")
             continue
 
         if logged_in:
+            
             main()
             break

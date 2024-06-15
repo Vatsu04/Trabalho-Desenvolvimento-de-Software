@@ -32,25 +32,6 @@ def cadastrar_usuario(connection, usuario):
     print("Usuário cadastrado com sucesso!")
     return True
 
-def cadastro():
-    connection = connect()
-    if not connection:
-        return
 
-    nome = input("Digite seu nome: ")
-    email = input("Digite seu email: ")
-    if not verificar_email(email):
-        print("Email inválido.")
-        return False
-    
-    senha = getpass.getpass("Digite sua senha: ")
-    if not verificar_senha(senha):
-        print("Senha inválida. Deve ter pelo menos 8 caracteres.")
-        return False
-
-    hashed_senha = crypt.hashpw(senha.encode('utf-8'), crypt.gensalt())
-    novo_usuario = Usuario(nome, email, hashed_senha)
-    cadastrar_usuario(connection, novo_usuario)
-    connection.close()
 
 
