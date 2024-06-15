@@ -1,5 +1,41 @@
 import connect as con
+import mysql.connector
+from datetime import datetime
 
+
+class Usuario:
+    def __init__(self, user="", email=""):
+        self.user = user
+        self.email = email
+
+
+
+def connect():
+    connection = mysql.connector.connect(host="localhost", user="root", password="", database="financeiro")
+    if connection.is_connected():
+        print("Connected successfully")
+        return connection
+    else:
+        print("Failed to connect")
+        return None
+    
+
+
+def registrar_relatorio(id_usuario, ferramenta_utilizada, entrada, saida):
+    connection = connect()
+    cursor = connection.cursor()
+    data = datetime.now().strftime('%Y-%m-%d')
+    
+    query = """
+    INSERT INTO relatorios (Id_Usuario, Data, Ferramentas_Utilizadas, Entrada, Saida)
+    VALUES (%s, %s, %s, %s, %s)
+    """
+    valores = (id_usuario, data, ferramenta_utilizada, entrada, saida)
+    
+    cursor.execute(query, valores)
+    connection.commit()
+    cursor.close()
+    connection.close()
 
 def menu():
     print('')
@@ -92,7 +128,11 @@ def submenu_porcentagem():
     elif opcao == 2:
         valor = float(input("Digite o valor: "))
         percentual = float(input("Digite a porcentagem: "))
+        entrada = valor + "," + percentual
+        
         resultado = porcentagem(valor, percentual)
+        saida = resultado
+        ferramenta_utilizada = "Porcentagem"
         print(f"{percentual}% de {valor} é {resultado}.")
     elif opcao == 0:
         menu()
