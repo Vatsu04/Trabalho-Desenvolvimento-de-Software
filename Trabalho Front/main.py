@@ -16,11 +16,12 @@ root = tk.Tk()
 root.title("Matemática financeira")
 
 
+
 # Abre em fullscreen    
 # root.state('zoomed')
 
 # Container para as páginas
-container = ttk.Frame(root)
+container = tk.Frame(root)
 container.pack(fill="both", expand=True)
 
 
@@ -35,19 +36,22 @@ frames = {}
 # Adicionar todas as páginas ao dicionário
 # "Matemática Financeira", "Porcentagem", "Lucro / Prejuízo", "Juros / Montante", "Desconto / Acrescimo", "ROI", "VPL", "TIR"
 frames["Login"] = login_page(container, mostrar_pagina)
-frames["Matemática Financeira"] = mat_fin_page(container)
-frames["Porcentagem"] = porcentagem_page(container)
-frames["Lucro / Prejuízo"] = lucro_prejuizo_page(container)
-frames["Juros / Montante"] = juros_montante_page(container)
-frames["Desconto / Acrescimo"] = desconto_acrescimo_page(container)
-frames["ROI"] = roi_page(container)
-frames["VPL"] = vpl_page(container)
-frames["TIR"] = tir_page(container)
+frames["Matemática Financeira"] = mat_fin_page(container, mostrar_pagina)
+frames["Porcentagem"] = porcentagem_page(container, mostrar_pagina)
+frames["Lucro / Prejuízo"] = lucro_prejuizo_page(container, mostrar_pagina)
+frames["Juros / Montante"] = juros_montante_page(container, mostrar_pagina)
+frames["Desconto / Acrescimo"] = desconto_acrescimo_page(container, mostrar_pagina)
+frames["ROI"] = roi_page(container, mostrar_pagina)
+frames["VPL"] = vpl_page(container, mostrar_pagina)
+frames["TIR"] = tir_page(container, mostrar_pagina)
 
+
+for frame in frames.values():
+    frame.grid(row=0, column=0, sticky="nsew")
 
 
 # Mostrar a página inicial
-mostrar_pagina("Login")
+mostrar_pagina("ROI")
 
 
 

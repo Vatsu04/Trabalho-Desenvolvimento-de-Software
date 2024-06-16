@@ -1,31 +1,70 @@
-from tkinter import ttk
 from tkinter import *
-from tkinter import font
+import ttkbootstrap as ttk
+from ttkbootstrap.constants import *
+# from ..main import mostrar_pagina
 
 
 
-
-def createButton(root, texts):
-    frame = ttk.Frame(root)
-    frame.pack(side=TOP)
+# def createButton(container, mostrar_pagina, texts):
+#     frame = ttk.Frame(container)
+#     frame.pack()
     
-    for index, text in enumerate(texts):
-        button = ttk.Button(frame, text=text, height=2, borderwidth=0, font=font.Font(weight='bold'))
-        # button.pack()
-        changeOnHover(button)
-        # button.grid(row=0, column=(index * 2))
-        button.pack(side=LEFT)
-        
-        root.columnconfigure((1 if index == 0 else ((index * 2) + 1)), weight=1, minsize=10)
+#     # for index, text in enumerate(texts):
+#     button = ttk.Button(frame, text="Matemática Financeira", bootstyle="link", command=lambda e: mostrar_pagina("Matemática Financeira"))
+#     button.pack(side=LEFT)
     
-    return frame
-        
+#     button = ttk.Button(frame, text="Porcentagem", bootstyle="link", command=lambda e: mostrar_pagina("Porcentagem"))
+#     button.pack(side=LEFT)
     
-def Header(root):
-    return createButton(root, ("Matemática Financeira", "Matemática Financeira", "Porcentagem", "Lucro / Prejuízo", "Juros / Montante", "Desconto / Acrescimo", "ROI", "VPL", "TIR"))
+#     button = ttk.Button(frame, text="Lucro / Prejuízo", bootstyle="link", command=lambda e: mostrar_pagina("Lucro / Prejuízo"))
+#     button.pack(side=LEFT)
+    
+#     button = ttk.Button(frame, text="Juros / Montante", bootstyle="link", command=lambda e: mostrar_pagina("Juros / Montante"))
+#     button.pack(side=LEFT)
+    
+#     button = ttk.Button(frame, text="Desconto / Acrescimo", bootstyle="link", command=lambda e: mostrar_pagina("Desconto / Acrescimo"))
+#     button.pack(side=LEFT)
+    
+#     button = ttk.Button(frame, text="ROI", bootstyle="link", command=lambda e: mostrar_pagina("ROI"))
+#     button.pack(side=LEFT)
+    
+#     button = ttk.Button(frame, text="VPL", bootstyle="link", command=lambda e: mostrar_pagina("VPL"))
+#     button.pack(side=LEFT)
+    
+#     button = ttk.Button(frame, text="TIR", bootstyle="link", command=lambda e: mostrar_pagina("TIR"))
+#     button.pack(side=LEFT)
     
 
-def changeOnHover(button):
-    button.bind("<Enter>", func=lambda e: button.config(foreground="red"))
+#     return frame
 
-    button.bind("<Leave>", func=lambda e: button.config(foreground="black"))
+
+def Header(container, mostrar_pagina):
+    frame = ttk.Frame(container)
+    frame.pack()
+    
+    # for index, text in enumerate(texts):
+    button = ttk.Button(frame, text="Matemática Financeira", bootstyle="link", command=lambda: mostrar_pagina("Matemática Financeira"))
+    button.pack(side=LEFT)
+    
+    button = ttk.Button(frame, text="Porcentagem", bootstyle="link", command=lambda: mostrar_pagina("Porcentagem"))
+    button.pack(side=LEFT)
+    
+    button = ttk.Button(frame, text="Lucro / Prejuízo", bootstyle="link", command=lambda: mostrar_pagina("Lucro / Prejuízo"))
+    button.pack(side=LEFT)
+    
+    button = ttk.Button(frame, text="Juros / Montante", bootstyle="link", command=lambda: mostrar_pagina("Juros / Montante"))
+    button.pack(side=LEFT)
+    
+    button = ttk.Button(frame, text="Desconto / Acrescimo", bootstyle="link", command=lambda: mostrar_pagina("Desconto / Acrescimo"))
+    button.pack(side=LEFT)
+    
+    button = ttk.Button(frame, text="ROI", bootstyle="link", command=lambda: mostrar_pagina("ROI"))
+    button.pack(side=LEFT)
+    
+    button = ttk.Button(frame, text="VPL", bootstyle="link", command=lambda: mostrar_pagina("VPL"))
+    button.pack(side=LEFT)
+    
+    button = ttk.Button(frame, text="TIR", bootstyle="link", command=lambda: mostrar_pagina("TIR"))
+    button.pack(side=LEFT)
+    # return createButton(container, mostrar_pagina, ("Matemática Financeira", "Porcentagem", "Lucro / Prejuízo", "Juros / Montante", "Desconto / Acrescimo", "ROI", "VPL", "TIR"))
+    

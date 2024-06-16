@@ -76,7 +76,8 @@ def login_page(container, mostrar_pagina):
 
     # Frames
     main_frame = ttk.Frame(container)
-    main_frame.grid(row=0, column=0, sticky="nsew")
+    # main_frame.pack()
+    # main_frame.grid(row=0, column=0, sticky="nsew")
     
     # main_frame.pack()
     
