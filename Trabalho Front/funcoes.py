@@ -9,7 +9,6 @@ import bcrypt as crypt
 
 def get_user_id(email):
     try:
-
         db_connection = mysql.connector.connect(
             host="localhost", user="root", password="", database="financeiro"
         )
