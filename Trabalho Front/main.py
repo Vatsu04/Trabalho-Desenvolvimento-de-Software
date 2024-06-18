@@ -1,96 +1,58 @@
 import tkinter as tk
-from tkinter import messagebox
-import mysql.connector
-import bcrypt
-import getpass
-import cadastro
-import login
-import funcoes
+from tkinter import ttk
+from pages.login import login_page
+from pages.roi import roi_page
+from pages.desconto_acrescimo import desconto_acrescimo_page
+from pages.juros_montante import juros_montante_page
+from pages.lucro_prejuizo import lucro_prejuizo_page
+from pages.mat_fin import mat_fin_page
+from pages.porcentagem import porcentagem_page
+from pages.vpl import vpl_page
+from pages.tir import tir_page
 
-# Função para conectar ao banco de dados
-def connect():
-    try:
-        connection = mysql.connector.connect(
-            host="localhost", user="root", password="", database="financeiro"
-        )
-        print("Connected successfully")
-        return connection
-    except mysql.connector.Error as err:
-        print(f"Error: {err}")
-        return None
-
-# Função para verificar o login
-def verificar_login():
-    email = email_login_entry.get()
-    senha = senha_login_entry.get()
-    login_successful, result = login.login(email, senha)
-    if login_successful:
-        id_user = funcoes.get_user_id(email)
-        messagebox.showinfo("Login", f"Login bem-sucedido! ID do usuário: {id_user}")
-    else:
-        messagebox.showerror("Login", f"Falha no login: {result}")
-
-# Função para registrar um novo usuário
-def registrar_usuario():
-    nome = nome_entry.get()
-    email = email_entry.get()
-    senha = senha_entry.get()
-    
-    connection = connect()
-    if not connection:
-        return
-    
-    if not cadastro.verificar_email(email):
-        messagebox.showerror("Cadastro", "Email inválido.")
-        return
-    
-    if not cadastro.verificar_senha(senha):
-        messagebox.showerror("Cadastro", "Senha inválida. Deve ter pelo menos 8 caracteres.")
-        return
-    
-    hashed_senha = bcrypt.hashpw(senha.encode('utf-8'), bcrypt.gensalt())
-    novo_usuario = cadastro.Usuario(nome, email, hashed_senha)
-    cadastro.cadastrar_usuario(connection, novo_usuario)
-    connection.close()
-    messagebox.showinfo("Cadastro", "Usuário cadastrado com sucesso!")
 
 # Interface gráfica com tkinter
 root = tk.Tk()
 root.title("Matemática financeira")
 
-# Frames
-login_frame = tk.Frame(root)
-login_frame.pack(pady=20)
 
-cadastro_frame = tk.Frame(root)
-cadastro_frame.pack(pady=20)
 
-# Labels
-tk.Label(login_frame, text="Email: ").grid(row=0, column=0, padx=10, pady=10)
-tk.Label(login_frame, text="Senha: ").grid(row=1, column=0, padx=10, pady=10)
+# Abre em fullscreen    
+# root.state('zoomed')
 
-tk.Label(cadastro_frame, text="Nome: ").grid(row=0, column=0, padx=10, pady=10)
-tk.Label(cadastro_frame, text="Email: ").grid(row=1, column=0, padx=10, pady=10)
-tk.Label(cadastro_frame, text="Senha: ").grid(row=2, column=0, padx=10, pady=10)
+# Container para as páginas
+container = tk.Frame(root)
+container.pack(fill="both", expand=True)
 
-# Entries
-email_login_entry = tk.Entry(login_frame, width=30)
-email_login_entry.grid(row=0, column=1, padx=10, pady=10)
-senha_login_entry = tk.Entry(login_frame, width=30, show="*")
-senha_login_entry.grid(row=1, column=1, padx=10, pady=10)
 
-nome_entry = tk.Entry(cadastro_frame, width=30)
-nome_entry.grid(row=0, column=1, padx=10, pady=10)
-email_entry = tk.Entry(cadastro_frame, width=30)
-email_entry.grid(row=1, column=1, padx=10, pady=10)
-senha_entry = tk.Entry(cadastro_frame, width=30, show="*")
-senha_entry.grid(row=2, column=1, padx=10, pady=10)
+def mostrar_pagina(page_name):
+    # Função para mostrar a página solicitada
+    frame = frames[page_name]
+    frame.tkraise()
+    
 
-# Botões
-login_button = tk.Button(login_frame, text="Login", command=verificar_login)
-login_button.grid(row=2, column=0, columnspan=2, padx=10, pady=10)
+# Dicionário para armazenar as páginas
+frames = {}
+# Adicionar todas as páginas ao dicionário
+# "Matemática Financeira", "Porcentagem", "Lucro / Prejuízo", "Juros / Montante", "Desconto / Acrescimo", "ROI", "VPL", "TIR"
+frames["Login"] = login_page(container, mostrar_pagina)
+frames["Matemática Financeira"] = mat_fin_page(container, mostrar_pagina)
+frames["Porcentagem"] = porcentagem_page(container, mostrar_pagina)
+frames["Lucro / Prejuízo"] = lucro_prejuizo_page(container, mostrar_pagina)
+frames["Juros / Montante"] = juros_montante_page(container, mostrar_pagina)
+frames["Desconto / Acrescimo"] = desconto_acrescimo_page(container, mostrar_pagina)
+frames["ROI"] = roi_page(container, mostrar_pagina)
+frames["VPL"] = vpl_page(container, mostrar_pagina)
+frames["TIR"] = tir_page(container, mostrar_pagina)
 
-cadastro_button = tk.Button(cadastro_frame, text="Cadastrar", command=registrar_usuario)
-cadastro_button.grid(row=3, column=0, columnspan=2, padx=10, pady=10)
+
+for frame in frames.values():
+    frame.grid(row=0, column=0, sticky="nsew")
+
+
+# Mostrar a página inicial
+mostrar_pagina("ROI")
+
+
 
 root.mainloop()
