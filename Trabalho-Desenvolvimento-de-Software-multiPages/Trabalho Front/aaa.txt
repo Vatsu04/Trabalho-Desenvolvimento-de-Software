@@ -1,0 +1,205 @@
+#### login.py
+
+import mysql.connector 
+import bcrypt
+import getpass
+
+def connect():
+    connection = mysql.connector.connect(host="localhost", user="root", password="", database="financeiro")
+    if connection.is_connected():
+        print("Connected successfully")
+        return connection
+    else:
+        print("Failed to connect")
+        return None
+
+def login(username, password):
+    try:
+        connection = connect()
+        if connection is None:
+            return False, "Failed to connect to the database"
+        
+        cursor = connection.cursor()
+
+        query = "SELECT Id_Usuario, Nome, Email, Senha FROM usuarios WHERE Email = %s"
+        cursor.execute(query, (username,))
+        user_record = cursor.fetchone()
+        
+        if user_record is None:
+            return False, "Username not found"
+        
+        user_id, db_name, db_email, db_password = user_record
+
+        if bcrypt.checkpw(password.encode('utf-8'), db_password.encode('utf-8')):
+            return True, user_id
+        else:
+            return False, "Incorrect password"
+    
+    except Exception as e:
+        return False, str(e)
+    
+    finally:
+        cursor.close()
+        connection.close()
+
+def log_in():
+    email = input("Digite seu email de usuário: ")
+    password = getpass.getpass("Digite sua senha: ")
+    login_successful, result = login(email, password)
+    if login_successful:
+        print(f"Login bem-sucedido! ID do usuário: {result}")
+        return True
+    else:
+        print(f"Falha no login: {result}")
+        return False
+
+#### cadastro.py
+import mysql.connector 
+import bcrypt as crypt
+import getpass
+
+def connect():
+    connection = mysql.connector.connect(host="localhost", user="root", password="", database="financeiro")
+    if connection.is_connected():
+        print("Connected successfully")
+        return connection
+    else:
+        print("Failed to connect")
+        return None
+
+class Usuario:
+    def __init__(self, nome="", email="", senha=""):
+        self.nome = nome
+        self.email = email
+        self.senha = senha
+
+def verificar_senha(senha):
+    return len(senha) >= 8
+
+def verificar_email(email):
+    return "@" in email and "." in email
+
+def cadastrar_usuario(connection, usuario):
+    cursor = connection.cursor()
+    sql = "INSERT INTO usuarios (Nome, Email, Senha) VALUES (%s, %s, %s)"
+    cursor.execute(sql, (usuario.nome, usuario.email, usuario.senha))
+    connection.commit()
+    cursor.close()
+    print("Usuário cadastrado com sucesso!")
+    return True
+
+### connect.py
+
+import mysql.connector 
+
+def connect():
+
+    connection = mysql.connector.connect(host="localhost", user="root", password="", database="financeiro")
+
+    if connection.is_connected():
+        print("Connected Succesfully")
+    else:
+        print("Failed to connect")
+
+
+#Perform db operations
+
+#connection.close()
+
+### funcoes.py
+
+import connect as con
+import mysql.connector
+from datetime import datetime
+import login
+import cadastro as cad
+import getpass
+import bcrypt as crypt
+
+
+def get_user_id(email):
+    try:
+
+        db_connection = mysql.connector.connect(
+            host="localhost", user="root", password="", database="financeiro"
+        )
+        cursor = db_connection.cursor()
+
+        query = "SELECT Id_Usuario FROM usuarios WHERE Email = %s"
+        cursor.execute(query, (email,))
+
+        user_id = cursor.fetchone()
+
+        cursor.close()
+        db_connection.close()
+
+        if user_id:
+            return user_id[0]
+        else:
+            return None
+    except mysql.connector.Error as err:
+        print(f"Error: {err}")
+        return None
+
+def log_in():
+    email = input("Digite seu email: ")
+    password = getpass.getpass("Digite sua senha: ")
+    login_successful, result = login.login(email, password)
+    if login_successful:
+        id_user = get_user_id(email)
+        print(f"Login bem-sucedido! ID do usuário: {id_user}")   
+        return id_user
+    else:
+        print(f"Falha no login: {result}")
+        return False
+
+def cadastro():
+    connection = connect()
+    if not connection:
+        return
+
+    nome = input("Digite seu nome: ")
+    email = input("Digite seu email: ")
+    if not cad.verificar_email(email):
+        print("Email inválido.")
+        return False
+    
+    senha = getpass.getpass("Digite sua senha: ")
+    if not cad.verificar_senha(senha):
+        print("Senha inválida. Deve ter pelo menos 8 caracteres.")
+        return False
+
+    hashed_senha = crypt.hashpw(senha.encode('utf-8'), crypt.gensalt())
+    novo_usuario = cad.Usuario(nome, email, hashed_senha)
+    cad.cadastrar_usuario(connection, novo_usuario)
+    connection.close()
+    user_id = get_user_id(email)
+    return user_id
+
+
+def connect():
+    connection = mysql.connector.connect(host="localhost", user="root", password="", database="financeiro")
+    if connection.is_connected():
+        print("Connected successfully")
+        return connection
+    else:
+        print("Failed to connect")
+        return None
+    
+
+
+def registrar_relatorio(id_usuario, ferramenta_utilizada, entrada, saida):
+    connection = connect()
+    cursor = connection.cursor()
+    data = datetime.now().strftime('%Y-%m-%d')
+    
+    query = """
+    INSERT INTO relatorios (Id_Usuario, Data, Ferramentas_Utilizadas, Entrada, Saida)
+    VALUES (%s, %s, %s, %s, %s)
+    """
+    valores = (id_usuario, data, ferramenta_utilizada, entrada, saida)
+    
+    cursor.execute(query, valores)
+    connection.commit()
+    cursor.close()
+    connection.close()
