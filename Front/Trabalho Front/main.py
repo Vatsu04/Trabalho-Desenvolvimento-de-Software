@@ -47,10 +47,7 @@ frames["TIR"] = tir_page(container, mostrar_pagina)
 for frame in frames.values():
     frame.grid(row=0, column=0, sticky="nsew")
 
-
 # Mostrar a página inicial
 mostrar_pagina("ROI")
-
-
 
 root.mainloop()
