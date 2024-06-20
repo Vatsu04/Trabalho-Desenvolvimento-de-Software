@@ -1,4 +1,4 @@
-from tkinter import *
+import tkinter as tk
 import ttkbootstrap as ttk
 from ttkbootstrap.constants import *
 # from ..main import mostrar_pagina
@@ -40,7 +40,7 @@ from ttkbootstrap.constants import *
 
 def Header(container, mostrar_pagina):
     frame = ttk.Frame(container)
-    frame.pack()
+    frame.pack(side=tk.TOP, expand=1)
     
     # for index, text in enumerate(texts):
     button = ttk.Button(frame, text="Matemática Financeira", bootstyle="link", command=lambda: mostrar_pagina("Matemática Financeira"))

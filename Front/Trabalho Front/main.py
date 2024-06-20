@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import ttk
+import ttkbootstrap as ttk
 from pages.login import login_page
 from pages.roi import roi_page
 from pages.desconto_acrescimo import desconto_acrescimo_page
@@ -9,6 +9,7 @@ from pages.mat_fin import mat_fin_page
 from pages.porcentagem import porcentagem_page
 from pages.vpl import vpl_page
 from pages.tir import tir_page
+from components.scrollable_frame import add_scroll_to_frame
 
 
 # Interface gráfica com tkinter
@@ -19,7 +20,7 @@ root.title("Matemática financeira")
 # root.state('zoomed')
 
 # Container para as páginas
-container = tk.Frame(root)
+container = ttk.Frame(root )
 container.pack(fill="both", expand=True)
 
 
@@ -34,7 +35,7 @@ frames = {}
 # Adicionar todas as páginas ao dicionário
 # "Matemática Financeira", "Porcentagem", "Lucro / Prejuízo", "Juros / Montante", "Desconto / Acrescimo", "ROI", "VPL", "TIR"
 frames["Login"] = login_page(container, mostrar_pagina)
-frames["Matemática Financeira"] = mat_fin_page(container, mostrar_pagina)
+frames["Matemática Financeira"] = mat_fin_page(container, mostrar_pagina, add_scroll_to_frame)
 frames["Porcentagem"] = porcentagem_page(container, mostrar_pagina)
 frames["Lucro / Prejuízo"] = lucro_prejuizo_page(container, mostrar_pagina)
 frames["Juros / Montante"] = juros_montante_page(container, mostrar_pagina)
@@ -46,8 +47,11 @@ frames["TIR"] = tir_page(container, mostrar_pagina)
 
 for frame in frames.values():
     frame.grid(row=0, column=0, sticky="nsew")
+    
+container.grid_rowconfigure(0, weight=1)
+container.grid_columnconfigure(0, weight=1)
 
 # Mostrar a página inicial
-mostrar_pagina("ROI")
+mostrar_pagina("Matemática Financeira")
 
 root.mainloop()
