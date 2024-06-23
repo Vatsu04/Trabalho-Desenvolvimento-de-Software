@@ -4,51 +4,28 @@ from tkinter import ttk
 
 def add_scroll_to_frame(parent):
     canvas = tk.Canvas(parent)
-    canvas.pack(side="left", fill="both", expand=True)
-
     scrollbar = ttk.Scrollbar(parent, orient="vertical", command=canvas.yview)
-    scrollbar.pack(side="right", fill="y")
+    scrollable_frame = ttk.Frame(canvas)
 
-    canvas.configure(yscrollcommand=scrollbar.set)
-    canvas.bind(
+    scrollable_frame.bind(
         "<Configure>",
         lambda e: canvas.configure(
             scrollregion=canvas.bbox("all")
         )
     )
-    
-    scrollable_frame = ttk.Frame(canvas)
-    canvas.create_window((0, 0), window=scrollable_frame, anchor="nw", tags="frame")
-    # scrollable_frame.pack(fill=tk.BOTH, expand=True)
 
-    # scrollable_frame.bind(
-    #     "<Configure>",
-    #     lambda e: canvas.configure(
-    #         scrollregion=canvas.bbox("all")
-    #     )
-    # )
-    
-    
-    canvas.bind_all("<MouseWheel>", lambda e: on_mousewheel(e, canvas=canvas))
-    # canvas.bind("<Configure>", lambda e: onCanvasConfigure(e, canvas=canvas))
+    canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
+    canvas.configure(yscrollcommand=scrollbar.set)
 
+    # Centralizar o canvas no frame pai
+    canvas.grid(row=0, column=0, sticky="nsew")
+    scrollbar.grid(row=0, column=1, sticky="ns")
+
+    parent.grid_rowconfigure(0, weight=1)
+    parent.grid_columnconfigure(0, weight=1)
 
 
     return scrollable_frame
 
     
    
-
-def on_mousewheel(event, canvas):
-    shift = (event.state & 0x1) != 0
-    scroll = -1 if event.delta > 0 else 1
-    if shift:
-        canvas.xview_scroll(scroll, "units")
-    else:
-        canvas.yview_scroll(scroll, "units")
-
-
-def onCanvasConfigure(event, canvas):
-    canvas.itemconfig('frame', height=canvas.winfo_height(), width=canvas.winfo_width())
-    # print(canvas.winfo_width())
-

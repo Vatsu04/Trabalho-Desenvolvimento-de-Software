@@ -16,18 +16,32 @@ from components.scrollable_frame import add_scroll_to_frame
 root = tk.Tk()
 root.title("Matemática financeira")
 
+root.geometry("900x600")
 # Abre em fullscreen    
 # root.state('zoomed')
 
 # Container para as páginas
-container = ttk.Frame(root )
+container = ttk.Frame(root)
 container.pack(fill="both", expand=True)
+
+
+def bind_mouse_wheel(root, canvas):
+    # def on_mouse_wheel(event):
+    #     canvas.yview_scroll(int(-1 * (event.delta / 120)), "units")
+
+    canvas.bind_all("<MouseWheel>", lambda event: canvas.yview_scroll(int(-1 * (event.delta / 120)), "units"))
+    canvas.bind_all("<Button-4>", lambda event: canvas.yview_scroll(-1, "units"))  # Linux specific
+    canvas.bind_all("<Button-5>", lambda event: canvas.yview_scroll(1, "units"))   # Linux specific
 
 
 def mostrar_pagina(page_name):
     # Função para mostrar a página solicitada
     frame = frames[page_name]
     frame.tkraise()
+    
+    current_canvas = frame.winfo_children()[0]
+
+    bind_mouse_wheel(root, current_canvas)
     
 
 # Dicionário para armazenar as páginas
@@ -52,6 +66,6 @@ container.grid_rowconfigure(0, weight=1)
 container.grid_columnconfigure(0, weight=1)
 
 # Mostrar a página inicial
-mostrar_pagina("Lucro / Prejuízo")
+mostrar_pagina("Matemática Financeira")
 
 root.mainloop()
