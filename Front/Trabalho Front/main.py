@@ -26,9 +26,6 @@ container.pack(fill="both", expand=True)
 
 
 def bind_mouse_wheel(root, canvas):
-    # def on_mouse_wheel(event):
-    #     canvas.yview_scroll(int(-1 * (event.delta / 120)), "units")
-
     canvas.bind_all("<MouseWheel>", lambda event: canvas.yview_scroll(int(-1 * (event.delta / 120)), "units"))
     canvas.bind_all("<Button-4>", lambda event: canvas.yview_scroll(-1, "units"))  # Linux specific
     canvas.bind_all("<Button-5>", lambda event: canvas.yview_scroll(1, "units"))   # Linux specific
@@ -52,7 +49,7 @@ frames["Login"] = login_page(container, mostrar_pagina)
 frames["Matemática Financeira"] = mat_fin_page(container, mostrar_pagina, add_scroll_to_frame)
 frames["Porcentagem"] = porcentagem_page(container, mostrar_pagina)
 frames["Lucro / Prejuízo"] = lucro_prejuizo_page(container, mostrar_pagina, add_scroll_to_frame)
-frames["Juros / Montante"] = juros_montante_page(container, mostrar_pagina)
+frames["Juros / Montante"] = juros_montante_page(container, mostrar_pagina, add_scroll_to_frame)
 frames["Desconto / Acrescimo"] = desconto_acrescimo_page(container, mostrar_pagina)
 frames["ROI"] = roi_page(container, mostrar_pagina, add_scroll_to_frame)
 frames["VPL"] = vpl_page(container, mostrar_pagina)
@@ -66,6 +63,6 @@ container.grid_rowconfigure(0, weight=1)
 container.grid_columnconfigure(0, weight=1)
 
 # Mostrar a página inicial
-mostrar_pagina("Matemática Financeira")
+mostrar_pagina("Juros / Montante")
 
 root.mainloop()
