@@ -50,7 +50,7 @@ frames["Matemática Financeira"] = mat_fin_page(container, mostrar_pagina, add_s
 frames["Porcentagem"] = porcentagem_page(container, mostrar_pagina)
 frames["Lucro / Prejuízo"] = lucro_prejuizo_page(container, mostrar_pagina, add_scroll_to_frame)
 frames["Juros / Montante"] = juros_montante_page(container, mostrar_pagina, add_scroll_to_frame)
-frames["Desconto / Acrescimo"] = desconto_acrescimo_page(container, mostrar_pagina)
+frames["Desconto / Acrescimo"] = desconto_acrescimo_page(container, mostrar_pagina, add_scroll_to_frame)
 frames["ROI"] = roi_page(container, mostrar_pagina, add_scroll_to_frame)
 frames["VPL"] = vpl_page(container, mostrar_pagina)
 frames["TIR"] = tir_page(container, mostrar_pagina, add_scroll_to_frame)
@@ -63,6 +63,6 @@ container.grid_rowconfigure(0, weight=1)
 container.grid_columnconfigure(0, weight=1)
 
 # Mostrar a página inicial
-mostrar_pagina("Juros / Montante")
+mostrar_pagina("Desconto / Acrescimo")
 
 root.mainloop()
