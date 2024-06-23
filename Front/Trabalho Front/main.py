@@ -47,12 +47,12 @@ frames = {}
 # "Matemática Financeira", "Porcentagem", "Lucro / Prejuízo", "Juros / Montante", "Desconto / Acrescimo", "ROI", "VPL", "TIR"
 frames["Login"] = login_page(container, mostrar_pagina)
 frames["Matemática Financeira"] = mat_fin_page(container, mostrar_pagina, add_scroll_to_frame)
-frames["Porcentagem"] = porcentagem_page(container, mostrar_pagina)
+frames["Porcentagem"] = porcentagem_page(container, mostrar_pagina, add_scroll_to_frame)
 frames["Lucro / Prejuízo"] = lucro_prejuizo_page(container, mostrar_pagina, add_scroll_to_frame)
 frames["Juros / Montante"] = juros_montante_page(container, mostrar_pagina, add_scroll_to_frame)
 frames["Desconto / Acrescimo"] = desconto_acrescimo_page(container, mostrar_pagina, add_scroll_to_frame)
 frames["ROI"] = roi_page(container, mostrar_pagina, add_scroll_to_frame)
-frames["VPL"] = vpl_page(container, mostrar_pagina)
+frames["VPL"] = vpl_page(container, mostrar_pagina, add_scroll_to_frame)
 frames["TIR"] = tir_page(container, mostrar_pagina, add_scroll_to_frame)
 
 

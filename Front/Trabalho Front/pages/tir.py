@@ -85,7 +85,8 @@ levar em conta algumas considerações críticas, como a possibilidade
 de múltiplas TIRs em cenários complexos e a necessidade de ajustar
 a taxa de desconto para refletir adequadamente o risco do projeto.""")
 
-    text(text_container, """Conclusão
+    h2(text_container, "Conclusão:")
+    text(text_container, """Conclusão:
 A Taxa Interna de Retorno é essencial na avaliação de projetos de
 investimento, oferecendo uma medida robusta de atratividade financeira.
 Ao calcular a TIR e compará-la com o custo de oportunidade do capital,
