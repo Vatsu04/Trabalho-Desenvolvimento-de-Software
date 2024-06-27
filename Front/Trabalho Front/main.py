@@ -13,10 +13,19 @@ from components.scrollable_frame import add_scroll_to_frame
 
 
 # Interface gráfica com tkinter
-root = tk.Tk()
-root.title("Matemática financeira")
+# root = tk.Tk()
+# root.title("Matemática financeira")
+# root.geometry("900x600")
 
+# Interface gráfica com ttkbootstrap e tema "solar"
+root = ttk.Window()
+root.title("Matemática financeira")
 root.geometry("900x600")
+root.resizable(True, True)
+root.minsize(width=900, height=600)
+root.maxsize(width=1000, height=800)
+style = ttk.Style("solar")
+
 # Abre em fullscreen    
 # root.state('zoomed')
 
@@ -63,6 +72,6 @@ container.grid_rowconfigure(0, weight=1)
 container.grid_columnconfigure(0, weight=1)
 
 # Mostrar a página inicial
-mostrar_pagina("Desconto / Acrescimo")
+mostrar_pagina("Matemática Financeira")
 
 root.mainloop()

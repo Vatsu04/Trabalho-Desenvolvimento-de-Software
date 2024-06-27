@@ -45,17 +45,25 @@ def lucro_prejuizo_page(container, mostrar_pagina, add_scroll_to_frame):
     text_container = ttk.Frame(scrollable_frame)
     text_container.pack()
 
+    h2(text_container, "O que é Lucro e Prejuízo?")
 
+    text(text_container, "Lucro e prejuízo são conceitos fundamentais em contabilidade e finanças que indicam o resultado financeiro de uma empresa ou indivíduo em um determinado período. Lucro ocorre quando a receita excede os custos e despesas, enquanto prejuízo acontece quando os custos e despesas superam a receita.")
 
-    text(text_container, "A Taxa Interna de Retorno, ou TIR, é uma métrica utilizada na\nanálise financeira para avaliar a atratividade de um investimento\nou projeto. Ela representa a taxa de desconto que iguala o valor\npresente líquido (VPL) dos fluxos de caixa futuros ao investimento\ninicial. Em outras palavras, é a taxa de crescimento anualizada\nesperada do investimento.")
+    h2(text_container, "Como Calcular Lucro e Prejuízo?")
 
-    text(text_container, "Como Calcular a TIR?\nA TIR é calculada encontrando a taxa de desconto que faz com que o VPL do projeto seja igual a zero. Em termos matemáticos, a TIR é o valor de r que satisfaz a equação:\nVPL = Σ [(FC_t / (1 + r)^t)] - C_0 = 0\nonde:\n- FC_t são os fluxos de caixa no período t;\n- r é a taxa de desconto (TIR);\n- C_0 é o investimento inicial.")
+    text(text_container, "O cálculo de lucro ou prejuízo é simples:\n\nLucro = Receita Total - Custos Totais\n\nPrejuízo = Custos Totais - Receita Total\n\nPor exemplo, se uma empresa tem uma receita de R$ 10.000 e custos totais de R$ 8.000, o lucro seria R$ 2.000. Se os custos totais fossem R$ 12.000, haveria um prejuízo de R$ 2.000.")
 
-    text(text_container, "Por que a TIR é Importante?\n● Critério de Viabilidade: Projetos com TIR superior ao custo de oportunidade do capital (ou taxa mínima de retorno exigida) são considerados atrativos.\n● Comparação de Projetos: Permite comparar diferentes projetos de investimento, selecionando aqueles com maior potencial de retorno financeiro.\n● Avaliação de Risco: A TIR incorpora o risco ao considerar o retorno esperado ajustado pela taxa de desconto necessária.")
+    h2(text_container, "Importância de Lucro e Prejuízo")
 
-    text(text_container, "Considerações Adicionais\nEmbora a TIR seja uma métrica valiosa, sua interpretação deve levar em conta algumas considerações críticas, como a possibilidade de múltiplas TIRs em cenários complexos e a necessidade de ajustar a taxa de desconto para refletir adequadamente o risco do projeto.")
+    text(text_container, "● Indicadores Financeiros: Lucro e prejuízo são indicadores-chave de desempenho financeiro de uma empresa, refletindo sua eficiência operacional e capacidade de geração de receita.\n\n● Tomada de Decisão: Baseiam decisões sobre investimentos, expansões, cortes de custos e estratégias de crescimento./n/n● Avaliação de Performance: Permitem comparar o desempenho atual com períodos anteriores ou metas estabelecidas.")
 
-    text(text_container, "Conclusão\nA Taxa Interna de Retorno é essencial na avaliação de projetos de investimento, oferecendo uma medida robusta de atratividade financeira. Ao calcular a TIR e compará-la com o custo de oportunidade do capital, as empresas podem tomar decisões mais fundamentadas e maximizar o retorno sobre seus investimentos. No entanto, é importante usá-la em conjunto com outras métricas, como o Valor Presente Líquido (VPL), para uma análise completa e equilibrada.")
+    h2(text_container, "Considerações Adicionais")
+
+    text(text_container, "É importante analisar o contexto e as circunstâncias que levam ao lucro ou prejuízo. Fatores como sazonalidade, concorrência e mudanças no mercado podem impactar significativamente os resultados financeiros.")
+
+    h2(text_container, "Conclusão")
+
+    text(text_container, "Lucro e prejuízo são conceitos cruciais para avaliação financeira, guiando decisões estratégicas e indicando a saúde financeira de uma organização ou indivíduo. Ao compreender e monitorar esses indicadores, pode-se otimizar o desempenho financeiro e garantir sustentabilidade a longo prazo.")
 
     return frame
 

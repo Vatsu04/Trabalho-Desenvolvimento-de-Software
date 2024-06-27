@@ -8,7 +8,7 @@ def h2(container, titulo):
     
     label = ttk.Label(frame, text=titulo)
 
-    Font_tuple = ("Inter", 15, "bold")
+    Font_tuple = ("Inter", 14, "bold")
 
     label.configure(font = Font_tuple)
-    label.pack(pady=10, padx=10)
+    label.pack(pady=20, padx=10)

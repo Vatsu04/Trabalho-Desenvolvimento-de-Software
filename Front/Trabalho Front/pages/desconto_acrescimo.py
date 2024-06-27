@@ -62,45 +62,34 @@ def desconto_acrescimo_page(container, mostrar_pagina, add_scroll_to_frame):
     text_container.pack()
     
     
+    h2(text_container, "O que é Desconto?")
+     
+    text(text_container, "Desconto é uma redução no preço original de um produto ou serviço. Ele é geralmente oferecido para incentivar compras ou liquidar estoques. O valor do desconto é normalmente calculado como uma porcentagem do preço original.")
     
-    text(text_container, """O que é Desconto?
-Desconto é uma redução no preço original de um produto ou serviço.
-Ele é geralmente oferecido para incentivar compras ou liquidar estoques.
-O valor do desconto é normalmente calculado como uma porcentagem
-do preço original.
-        
-Como Calcular o Desconto?
-A fórmula básica do desconto é:
-Preço com Desconto = Preço Original - (Preço Original * Percentual de Desconto)
-        
-Exemplo:
-Você quer comprar um produto que custa R$ 100 com um desconto de 20%.
-Preço com Desconto = 100 - (100 * 0.20) = 100 - 20 = R$ 80
-        
-O que é Acréscimo?
-Acréscimo é um aumento no preço original de um produto ou serviço.
-Ele é aplicado por diversas razões, como aumento de custos ou aumento
-de demanda. O valor do acréscimo também é geralmente calculado como
-uma porcentagem do preço original.
-        
-Como Calcular o Acréscimo?
-A fórmula básica do acréscimo é:
-Preço com Acréscimo = Preço Original + (Preço Original * Percentual de Acréscimo)
-        
-Exemplo:
-Você quer comprar um produto que custa R$ 100 com um acréscimo de 20%.
-Preço com Acréscimo = 100 + (100 * 0.20) = 100 + 20 = R$ 120
-        
-Por que Entender Desconto e Acréscimo é Importante?
-● Economia: Conhecer como funcionam descontos pode ajudar a economizar dinheiro em compras.
-● Planejamento Financeiro: Saber calcular acréscimos e descontos é útil para planejar orçamentos e gastos.
-● Negociação: Entender essas métricas ajuda a negociar melhores preços em diversas situações.
-        
-Conclusão
-Descontos e acréscimos são fundamentais na vida financeira cotidiana.
-Saber como calculá-los permite tomar decisões mais informadas e
-aproveitar oportunidades de economia e investimento de forma mais eficiente.""")
+    h2(text_container, "Como Calcular o Desconto?")
+
+    text(text_container, "A fórmula básica do desconto é:\n\nPreço com Desconto = Preço Original - (Preço Original * Percentual de Desconto)")
     
+    text(text_container, "Exemplo:\n\nVocê quer comprar um produto que custa R$ 100 com um desconto de 20%.\n\nPreço com Desconto = 100 - (100 * 0.20) = 100 - 20 = R$ 80")
+    
+    h2(text_container, "O que é Acréscimo?")
+
+    text(text_container, "Acréscimo é um aumento no preço original de um produto ou serviço. Ele é aplicado por diversas razões, como aumento de custos ou aumento de demanda. O valor do acréscimo também é geralmente calculado como uma porcentagem do preço original.")
+
+    h2(text_container, "Como Calcular o Acréscimo?")
+
+    text(text_container, "A fórmula básica do acréscimo é:\n\nPreço com Acréscimo = Preço Original + (Preço Original * Percentual de Acréscimo")
+
+    text(text_container, "Exemplo:\n\nVocê quer comprar um produto que custa R$ 100 com um acréscimo de 20%.\n\nPreço com Acréscimo = 100 + (100 * 0.20) = 100 + 20 = R$ 120")
+        
+    h2(text_container, "Por que Entender Desconto e Acréscimo é Importante?")
+
+    text(text_container,"● Economia: Conhecer como funcionam descontos pode ajudar a economizar dinheiro em compras.\n\n● Planejamento Financeiro: Saber calcular acréscimos e descontos é útil para planejar orçamentos e gastos.\n\n● Negociação: Entender essas métricas ajuda a negociar melhores preços em diversas situações.")
+
+    h2(text_container, "Conclusão")
+
+    text(text_container, "Descontos e acréscimos são fundamentais na vida financeira cotidiana. Saber como calculá-los permite tomar decisões mais informadas e aproveitar oportunidades de economia e investimento de forma mais eficiente.")
+   
         
     return frame
 

@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import ttk
 from components.header import Header
 from components.h1 import h1
+from components.h2 import h2
 from components.text import text
 from components.label import create_label
 from components.input import create_input
@@ -35,13 +36,21 @@ def porcentagem_page(container, mostrar_pagina, add_scroll_to_frame):
 
     text(text_container, "A calculadora de porcentagem é uma ferramenta simples utilizada para calcular a porcentagem de um valor em relação a outro. Ela é amplamente utilizada em diversas áreas, como finanças pessoais, matemática, e estudos de mercado.")
 
-    text(text_container, "Como Calcular Porcentagem?\nPara calcular a porcentagem de um valor em relação a outro, utiliza-se a fórmula:\nPorcentagem = (Valor * Porcentagem%) / 100\nonde:\n- Valor é o valor base;\n- Porcentagem% é a porcentagem que se deseja calcular sobre o valor base.")
+    h2(text_container, "Como Calcular Porcentagem?")
 
-    text(text_container, "Interpretação do Resultado:\nO resultado obtido representa a quantidade correspondente ao percentual calculado em relação ao valor base.")
+    text(text_container, "Para calcular a porcentagem de um valor em relação a outro, utiliza-se a fórmula:\n\nPorcentagem = (Valor * Porcentagem%) / 100\n\nOnde:\n\n- Valor é o valor base;\n- Porcentagem% é a porcentagem que se deseja calcular sobre o valor base.")
 
-    text(text_container, "Considerações Adicionais:\nÉ importante utilizar corretamente a unidade percentual (o símbolo %) ao inserir os valores de entrada para obter resultados precisos.")
+    h2(text_container, "Interpretação do Resultado")
 
-    text(text_container, "Conclusão:\nA calculadora de porcentagem é uma ferramenta útil e prática para realizar cálculos rápidos e precisos relacionados a percentuais, facilitando análises e decisões em diversas situações.")
+    text(text_container, "O resultado obtido representa a quantidade correspondente ao percentual calculado em relação ao valor base.")
+
+    h2(text_container, "Considerações Adicionais")
+
+    text(text_container, "É importante utilizar corretamente a unidade percentual (o símbolo %) ao inserir os valores de entrada para obter resultados precisos.")
+
+    h2(text_container, "Conclusão")
+
+    text(text_container, "A calculadora de porcentagem é uma ferramenta útil e prática para realizar cálculos rápidos e precisos relacionados a percentuais, facilitando análises e decisões em diversas situações.")
 
     return frame
 

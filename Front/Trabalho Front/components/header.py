@@ -66,5 +66,10 @@ def Header(container, mostrar_pagina):
     
     button = ttk.Button(frame, text="TIR", bootstyle="link", command=lambda: mostrar_pagina("TIR"))
     button.pack(side=LEFT)
+
+    # Sepador logo abaixo do munu
+    linha = ttk.Separator(container, bootstyle="success")
+    linha.pack(side=tk.TOP, fill="x", padx=80)
+    
     # return createButton(container, mostrar_pagina, ("Matemática Financeira", "Porcentagem", "Lucro / Prejuízo", "Juros / Montante", "Desconto / Acrescimo", "ROI", "VPL", "TIR"))
     

@@ -52,48 +52,23 @@ def tir_page(container, mostrar_pagina, add_scroll_to_frame):
 
 
 
-    text(text_container, """A Taxa Interna de Retorno, ou TIR, é uma métrica utilizada na
-análise financeira para avaliar a atratividade de um investimento
-ou projeto. Ela representa a taxa de desconto que iguala o valor
-presente líquido (VPL) dos fluxos de caixa futuros ao investimento
-inicial. Em outras palavras, é a taxa de crescimento anualizada
-esperada do investimento.""")
+    text(text_container, "A Taxa Interna de Retorno, ou TIR, é uma métrica utilizada na análise financeira para avaliar a atratividade de um investimento ou projeto. Ela representa a taxa de desconto que iguala o valor presente líquido (VPL) dos fluxos de caixa futuros ao investimento inicial. Em outras palavras, é a taxa de crescimento anualizada esperada do investimento.")
 
-    text(text_container, """Como Calcular a TIR?
-A TIR é calculada encontrando a taxa de desconto que faz com que
-o VPL do projeto seja igual a zero. Em termos matemáticos, a TIR
-é o valor de r que satisfaz a equação:
-VPL = Σ [(FC_t / (1 + r)^t)] - C_0 = 0
-onde:
-- FC_t são os fluxos de caixa no período t;
-- r é a taxa de desconto (TIR);
-- C_0 é o investimento inicial.""")
+    h2(text_container, "Como Calcular a TIR?")
 
-    text(text_container, """Por que a TIR é Importante?
-● Critério de Viabilidade: Projetos com TIR superior ao custo
-de oportunidade do capital (ou taxa mínima de retorno exigida)
-são considerados atrativos.
-● Comparação de Projetos: Permite comparar diferentes projetos
-de investimento, selecionando aqueles com maior potencial de
-retorno financeiro.
-● Avaliação de Risco: A TIR incorpora o risco ao considerar
-o retorno esperado ajustado pela taxa de desconto necessária.""")
+    text(text_container, "A TIR é calculada encontrando a taxa de desconto que faz com que o VPL do projeto seja igual a zero. Em termos matemáticos, a TIR é o valor de r que satisfaz a equação:\n\nVPL = Σ [(FC_t / (1 + r)^t)] - C_0 = 0\n\nOnde:\n\n- FC_t são os fluxos de caixa no período t;\n- r é a taxa de desconto (TIR);\n- C_0 é o investimento inicial.")
 
-    text(text_container, """Considerações Adicionais
-Embora a TIR seja uma métrica valiosa, sua interpretação deve
-levar em conta algumas considerações críticas, como a possibilidade
-de múltiplas TIRs em cenários complexos e a necessidade de ajustar
-a taxa de desconto para refletir adequadamente o risco do projeto.""")
+    h2(text_container, "Por que a TIR é Importante?")
 
-    h2(text_container, "Conclusão:")
-    text(text_container, """Conclusão:
-A Taxa Interna de Retorno é essencial na avaliação de projetos de
-investimento, oferecendo uma medida robusta de atratividade financeira.
-Ao calcular a TIR e compará-la com o custo de oportunidade do capital,
-as empresas podem tomar decisões mais fundamentadas e maximizar o
-retorno sobre seus investimentos. No entanto, é importante usá-la em
-conjunto com outras métricas, como o Valor Presente Líquido (VPL),
-para uma análise completa e equilibrada.""")
+    text(text_container, "● Critério de Viabilidade: Projetos com TIR superior ao custo de oportunidade do capital (ou taxa mínima de retorno exigida) são considerados atrativos.\n\n● Comparação de Projetos: Permite comparar diferentes projetos de investimento, selecionando aqueles com maior potencial de retorno financeiro.\n\n● Avaliação de Risco: A TIR incorpora o risco ao considerar o retorno esperado ajustado pela taxa de desconto necessária.")
+
+    h2(text_container, "Considerações Adicionais")
+
+    text(text_container, "Embora a TIR seja uma métrica valiosa, sua interpretação deve levar em conta algumas considerações críticas, como a possibilidade de múltiplas TIRs em cenários complexos e a necessidade de ajustar a taxa de desconto para refletir adequadamente o risco do projeto.")
+
+    h2(text_container, "Conclusão")
+
+    text(text_container, "A Taxa Interna de Retorno é essencial na avaliação de projetos de investimento, oferecendo uma medida robusta de atratividade financeira. Ao calcular a TIR e compará-la com o custo de oportunidade do capital, as empresas podem tomar decisões mais fundamentadas e maximizar o retorno sobre seus investimentos. No entanto, é importante usá-la em conjunto com outras métricas, como o Valor Presente Líquido (VPL), para uma análise completa e equilibrada.")
 
     return frame
 

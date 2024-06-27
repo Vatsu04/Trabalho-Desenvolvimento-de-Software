@@ -11,4 +11,4 @@ def h1(container, titulo):
     Font_tuple = ("Inter", 20, "bold")
 
     label.configure(font = Font_tuple)
-    label.pack(pady=10, padx=10)
+    label.pack(pady=20, padx=10)

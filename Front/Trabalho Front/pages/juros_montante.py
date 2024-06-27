@@ -43,26 +43,34 @@ def juros_montante_page(container, mostrar_pagina, add_scroll_to_frame):
     
     montante_text_container = ttk.Frame(scrollable_frame)
     montante_text_container.pack()
+
+    h2(montante_text_container, "O que é a Fórmula do Montante?")
     
-    text(montante_text_container, "O que é a Fórmula do Montante?\nA fórmula do montante é utilizada para calcular o valor total acumulado\nem um investimento ou empréstimo ao final de um determinado período,\nconsiderando os juros aplicados.")
+    text(montante_text_container, "A fórmula do montante é utilizada para calcular o valor total acumulado em um investimento ou empréstimo ao final de um determinado período, considerando os juros aplicados.")
 
-    text(montante_text_container, "Como Calcular o Montante com Juros Compostos?\nA fórmula do montante para juros compostos é:\nMontante = Principal * (1 + Taxa de Juros) ** Tempo")
+    h2(montante_text_container, "Como Calcular o Montante com Juros Compostos?")
 
-    text(montante_text_container, "Onde:\n● Principal: O valor inicial emprestado ou investido.\n● Taxa de Juros: A taxa de juros aplicada por período (em decimal).\n● Tempo: O número de períodos de tempo em que os juros são aplicados.")
+    text(montante_text_container, "A fórmula do montante para juros compostos é:\n\nMontante = Principal * (1 + Taxa de Juros) ** Tempo\n\nOnde:\n\n● Principal: O valor inicial emprestado ou investido.\n● Taxa de Juros: A taxa de juros aplicada por período (em decimal).\n● Tempo: O número de períodos de tempo em que os juros são aplicados.")
 
-    text(montante_text_container, "Exemplo de Juros Compostos:\nVocê investe R$ 1.000 a uma taxa de juros compostos de 5% ao ano por 3 anos.\nPrincipal = R$ 1.000\nTaxa de Juros = 5/100 = 0.05\nTempo = 3 anos\nMontante = 1.000 * (1 + 0.05) ** 3\nMontante = 1.000 * 1.157625 = R$ 1.157,63")
+    text(montante_text_container, "Exemplo de Juros Compostos:\n\nVocê investe R$ 1.000 a uma taxa de juros compostos de 5% ao ano por 3 anos.\n\nPrincipal = R$ 1.000\nTaxa de Juros = 5/100 = 0.05\nTempo = 3 anos\nMontante = 1.000 * (1 + 0.05) ** 3\nMontante = 1.000 * 1.157625 = R$ 1.157,63")
 
-    text(montante_text_container, "O valor total acumulado após 3 anos será R$ 1.157,63, com os juros compostos\nsendo R$ 157,63.")
+    text(montante_text_container, "O valor total acumulado após 3 anos será R$ 1.157,63, com os juros compostos sendo R$ 157,63.")
 
-    text(montante_text_container, "Como Calcular o Montante com Juros Simples?\nA fórmula do montante para juros simples é:\nMontante = Principal + (Principal * Taxa de Juros * Tempo)")
+    h2(montante_text_container, "Como Calcular o Montante com Juros Simples?")
 
-    text(montante_text_container, "Exemplo de Juros Simples:\nVocê investe R$ 1.000 a uma taxa de juros simples de 5% ao ano por 3 anos.\nPrincipal = R$ 1.000\nTaxa de Juros = 5/100 = 0.05\nTempo = 3 anos\nMontante = 1.000 + (1.000 * 0.05 * 3)\nMontante = 1.000 + 150 = R$ 1.150")
+    text(montante_text_container, "A fórmula do montante para juros simples é:\n\nMontante = Principal + (Principal * Taxa de Juros * Tempo)")
 
-    text(montante_text_container, "O valor total acumulado após 3 anos será R$ 1.150, com os juros simples\nsendo R$ 150.")
+    text(montante_text_container, "Exemplo de Juros Simples:\n\nVocê investe R$ 1.000 a uma taxa de juros simples de 5% ao ano por 3 anos.\n\nPrincipal = R$ 1.000\nTaxa de Juros = 5/100 = 0.05\nTempo = 3 anos\nMontante = 1.000 + (1.000 * 0.05 * 3)\nMontante = 1.000 + 150 = R$ 1.150")
 
-    text(montante_text_container, "Por que Entender a Fórmula do Montante é Importante?\n● Planejamento Financeiro: Ajuda a planejar melhor seus investimentos\ne empréstimos.\n● Educação Financeira: Entender como os juros impactam o montante final\né fundamental para tomar decisões financeiras informadas.\n● Comparação de Produtos Financeiros: Permite comparar diferentes opções\nde investimentos com base em seus retornos.")
+    text(montante_text_container, "O valor total acumulado após 3 anos será R$ 1.150, com os juros simples sendo R$ 150.")
 
-    text(montante_text_container, "Conclusão\nA fórmula do montante é uma ferramenta essencial na matemática financeira.\nSaber como calcular o montante acumulado permite compreender o impacto\ndos juros, seja simples ou compostos, ajudando a tomar decisões financeiras\nmais informadas e eficientes.")
+    h2(montante_text_container, "Por que Entender a Fórmula do Montante é Importante?")
+
+    text(montante_text_container, "● Planejamento Financeiro: Ajuda a planejar melhor seus investimentos e empréstimos.\n\n● Educação Financeira: Entender como os juros impactam o montante final é fundamental para tomar decisões financeiras informadas.\n\n● Comparação de Produtos Financeiros: Permite comparar diferentes opções de investimentos com base em seus retornos.")
+
+    h2(montante_text_container, "Conclusão")
+
+    text(montante_text_container, "A fórmula do montante é uma ferramenta essencial na matemática financeira. Saber como calcular o montante acumulado permite compreender o impacto dos juros, seja simples ou compostos, ajudando a tomar decisões financeiras mais informadas e eficientes.")
     
 
     h2(scrollable_frame, "Juros Simples")
@@ -101,19 +109,25 @@ def juros_montante_page(container, mostrar_pagina, add_scroll_to_frame):
     simples_text_container = ttk.Frame(scrollable_frame)
     simples_text_container.pack()
 
-    text(simples_text_container, "O que são Juros Simples?\nJuros Simples são uma forma de calcular os juros sobre um valor\nemprestado ou investido, onde os juros são calculados apenas sobre\no valor principal, sem considerar os juros acumulados de períodos\nanteriores.")
+    h2(simples_text_container, "O que são Juros Simples?")
 
-    text(simples_text_container, "Como Calcular Juros Simples?\nA fórmula básica dos juros simples é:\nJuros Simples = Principal * Taxa de Juros * Tempo")
+    text(simples_text_container, "Juros Simples são uma forma de calcular os juros sobre um valor emprestado ou investido, onde os juros são calculados apenas sobre o valor principal, sem considerar os juros acumulados de períodos anteriores.")
 
-    text(simples_text_container, "Onde:\n● Principal: O valor inicial emprestado ou investido.\n● Taxa de Juros: A taxa de juros aplicada (em decimal).\n● Tempo: O período de tempo pelo qual o dinheiro é emprestado ou investido.")
+    h2(simples_text_container, "Como Calcular Juros Simples?")
 
-    text(simples_text_container, "Exemplo:\nVocê investe R$ 1.000 a uma taxa de juros simples de 5% ao ano por 3 anos.\nPrincipal = R$ 1.000\nTaxa de Juros = 5/100 = 0.05\nTempo = 3 anos\nJuros Simples = 1.000 * 0.05 * 3 = R$ 150")
+    text(simples_text_container, "A fórmula básica dos juros simples é:\n\nJuros Simples = Principal * Taxa de Juros * Tempo\n\nOnde:\n\n● Principal: O valor inicial emprestado ou investido.\n● Taxa de Juros: A taxa de juros aplicada (em decimal).\n● Tempo: O período de tempo pelo qual o dinheiro é emprestado ou investido.")
 
-    text(simples_text_container, "O valor total acumulado (Principal + Juros) após 3 anos será:\nValor Total = Principal + Juros Simples\nValor Total = 1.000 + 150 = R$ 1.150")
+    text(simples_text_container, "Exemplo:\n\nVocê investe R$ 1.000 a uma taxa de juros simples de 5% ao ano por 3 anos.\n\nPrincipal = R$ 1.000\nTaxa de Juros = 5/100 = 0.05\nTempo = 3 anos\nJuros Simples = 1.000 * 0.05 * 3 = R$ 150")
 
-    text(simples_text_container, "Por que Entender Juros Simples é Importante?\n● Planejamento Financeiro: Ajuda a planejar empréstimos e investimentos.\n● Comparação de Produtos Financeiros: Permite comparar diferentes opções de empréstimos e investimentos.\n● Educação Financeira: Entender os juros simples é fundamental para tomar decisões financeiras informadas.")
+    text(simples_text_container, "O valor total acumulado (Principal + Juros) após 3 anos será:\n\nValor Total = Principal + Juros Simples\n\nValor Total = 1.000 + 150 = R$ 1.150")
 
-    text(simples_text_container, "Conclusão\nOs juros simples são uma ferramenta básica, mas essencial na matemática\nfinanceira. Saber como calculá-los ajuda a compreender melhor como\nos investimentos e empréstimos funcionam, permitindo tomar decisões\nmais informadas e eficientes.")
+    h2(simples_text_container, "Por que Entender Juros Simples é Importante?")
+
+    text(simples_text_container, "● Planejamento Financeiro: Ajuda a planejar empréstimos e investimentos.\n\n● Comparação de Produtos Financeiros: Permite comparar diferentes opções de empréstimos e investimentos.\n\n● Educação Financeira: Entender os juros simples é fundamental para tomar decisões financeiras informadas.")
+
+    h2(simples_text_container, "Conclusão")
+
+    text(simples_text_container, "Os juros simples são uma ferramenta básica, mas essencial na matemática financeira. Saber como calculá-los ajuda a compreender melhor como os investimentos e empréstimos funcionam, permitindo tomar decisões mais informadas e eficientes.")
     
     
     h2(scrollable_frame, "Juros Compostos")
@@ -140,20 +154,26 @@ def juros_montante_page(container, mostrar_pagina, add_scroll_to_frame):
     
     composto_text_container = ttk.Frame(scrollable_frame)
     composto_text_container.pack()
+
+    h2(composto_text_container, "O que são Juros Compostos?")
     
-    text(composto_text_container, "O que são Juros Compostos?\nJuros Compostos são uma forma de calcular os juros sobre um valor\nemprestado ou investido, onde os juros são calculados sobre o valor\nprincipal mais os juros acumulados de períodos anteriores. Isso resulta\nem um crescimento exponencial do montante.")
+    text(composto_text_container, "Juros Compostos são uma forma de calcular os juros sobre um valor emprestado ou investido, onde os juros são calculados sobre o valor principal mais os juros acumulados de períodos anteriores. Isso resulta em um crescimento exponencial do montante.")
 
-    text(composto_text_container, "Como Calcular Juros Compostos?\nA fórmula básica dos juros compostos é:\nMontante = Principal * (1 + Taxa de Juros) ** Tempo")
+    h2(composto_text_container, "Como Calcular Juros Compostos?")
 
-    text(composto_text_container, "Onde:\n● Principal: O valor inicial emprestado ou investido.\n● Taxa de Juros: A taxa de juros aplicada por período (em decimal).\n● Tempo: O número de períodos de tempo em que os juros são aplicados.")
+    text(composto_text_container, "A fórmula básica dos juros compostos é:\n\nMontante = Principal * (1 + Taxa de Juros) ** Tempo\n\nOnde:\n\n● Principal: O valor inicial emprestado ou investido.\n● Taxa de Juros: A taxa de juros aplicada por período (em decimal).\n● Tempo: O número de períodos de tempo em que os juros são aplicados.")
 
-    text(composto_text_container, "Exemplo:\nVocê investe R$ 1.000 a uma taxa de juros compostos de 5% ao ano por 3 anos.\nPrincipal = R$ 1.000\nTaxa de Juros = 5/100 = 0.05\nTempo = 3 anos\nMontante = 1.000 * (1 + 0.05) ** 3\nMontante = 1.000 * 1.157625 = R$ 1.157,63")
+    text(composto_text_container, "Exemplo:\n\nVocê investe R$ 1.000 a uma taxa de juros compostos de 5% ao ano por 3 anos.\n\nPrincipal = R$ 1.000\nTaxa de Juros = 5/100 = 0.05\nTempo = 3 anos\nMontante = 1.000 * (1 + 0.05) ** 3\nMontante = 1.000 * 1.157625 = R$ 1.157,63")
 
-    text(composto_text_container, "O valor total acumulado após 3 anos será R$ 1.157,63, com os juros compostos\nsendo R$ 157,63.")
+    text(composto_text_container, "O valor total acumulado após 3 anos será R$ 1.157,63, com os juros compostos sendo R$ 157,63.")
 
-    text(composto_text_container, "Por que Entender Juros Compostos é Importante?\n● Crescimento Exponencial: Juros compostos permitem que investimentos cresçam exponencialmente ao longo do tempo.\n● Planejamento Financeiro: Ajuda a planejar melhor seus investimentos entender o impacto do tempo nos retornos financeiros.\n● Comparação de Produtos Financeiros: Permite comparar diferentes opções de investimentos com base em seus potenciais de crescimento.")
+    h2(composto_text_container, "Por que Entender Juros Compostos é Importante?")
 
-    text(composto_text_container, "Conclusão\nnos juros compostos são uma ferramenta poderosa na matemática financeira.\nSaber como calculá-los permite compreender o potencial de crescimento\ndos investimentos ao longo do tempo, ajudando a tomar decisões financeiras\nmais informadas e estratégicas.")
+    text(composto_text_container, "● Crescimento Exponencial: Juros compostos permitem que investimentos cresçam exponencialmente ao longo do tempo.\n\n● Planejamento Financeiro: Ajuda a planejar melhor seus investimentos entender o impacto do tempo nos retornos financeiros.\n\n● Comparação de Produtos Financeiros: Permite comparar diferentes opções de investimentos com base em seus potenciais de crescimento.")
+
+    h2(composto_text_container, "Conclusão")
+
+    text(composto_text_container, "Os juros compostos são uma ferramenta poderosa na matemática financeira. Saber como calculá-los permite compreender o potencial de crescimento dos investimentos ao longo do tempo, ajudando a tomar decisões financeiras mais informadas e estratégicas.")
 
 
 
