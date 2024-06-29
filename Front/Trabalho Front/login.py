@@ -11,27 +11,27 @@ def connect():
         print("Failed to connect")
         return None
 
-def login(email, password):
+def login(username, password):
     try:
         connection = connect()
         if connection is None:
-            return False, "Failed to connect to the database"
+            return False, "Falhou ao conectar com o banco de dados"
         
         cursor = connection.cursor()
 
         query = "SELECT Id_Usuario, Nome, Email, Senha FROM usuarios WHERE Email = %s"
-        cursor.execute(query, (email,))
+        cursor.execute(query, (username,))
         user_record = cursor.fetchone()
         
         if user_record is None:
-            return False, "Username not found"
+            return False, "Usuário não encontrado!"
         
         user_id, db_name, db_email, db_password = user_record
 
         if bcrypt.checkpw(password.encode('utf-8'), db_password.encode('utf-8')):
             return True, user_id
         else:
-            return False, "Incorrect password"
+            return False, "Senha incorreta!"
     
     except Exception as e:
         return False, str(e)
