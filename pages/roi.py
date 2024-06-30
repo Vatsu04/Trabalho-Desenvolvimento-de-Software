@@ -8,6 +8,7 @@ from components.text import text
 from components.label import create_label
 from components.input import create_input
 from components.button import create_button
+from funcoes import calcular_roi
 
 
 def roi_page(container, mostrar_pagina, add_scroll_to_frame):
@@ -33,7 +34,7 @@ def roi_page(container, mostrar_pagina, add_scroll_to_frame):
     
     retorno_investimento = create_label(input_container_2, "O retorno sobre o investimento \n (ROI) é: 00,00%", 0, 1)
 
-    create_button(input_container_2, "CALCULAR", lambda: calcular_roi(ganho_investimento, custo_investimento, retorno_investimento), 0, 0)
+    create_button(input_container_2, "CALCULAR", lambda: calcular_roi(ganho_investimento.get(), custo_investimento.get(), retorno_investimento), 0, 0)
     
     h2(scrollable_frame, "O que é Retorno sobre Investimento (ROI)?")
 
@@ -66,8 +67,3 @@ def roi_page(container, mostrar_pagina, add_scroll_to_frame):
 
     return frame
 
-
-def calcular_roi(ganho_investimento, custo_investimento, label):
-    roi = (float(ganho_investimento.get()) - float(custo_investimento.get())) / float(custo_investimento.get()) * 100
-    label.config(text="O retorno sobre o investimento \n (ROI) é: " + str(roi) + "%")
-    # return roi

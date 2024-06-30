@@ -8,6 +8,7 @@ from components.text import text
 from components.label import create_label
 from components.input import create_input
 from components.button import create_button
+from funcoes import calcular_tir
 
 
 def tir_page(container, mostrar_pagina, add_scroll_to_frame):
@@ -72,12 +73,3 @@ def tir_page(container, mostrar_pagina, add_scroll_to_frame):
 
     return frame
 
-
-def calcular_tir(vpl, pv1, pv2, i1, i2, response):
-    try:
-        tir = float(i1) + (float(vpl) / (float(pv2) - float(pv1))) * (float(i2) - float(i1))
-        response.config(text="A Taxa Interna de Retorno (TIR) é: " + str(tir))
-        # return tir
-    except ZeroDivisionError:
-        print("Divisão por zero. Impossível calcular a TIR.")
-        return None

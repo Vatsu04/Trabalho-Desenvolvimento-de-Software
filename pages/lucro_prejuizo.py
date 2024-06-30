@@ -7,6 +7,7 @@ from components.text import text
 from components.label import create_label
 from components.input import create_input
 from components.button import create_button
+from funcoes import lucro, prejuizo
 
 
 def lucro_prejuizo_page(container, mostrar_pagina, add_scroll_to_frame):
@@ -34,13 +35,6 @@ def lucro_prejuizo_page(container, mostrar_pagina, add_scroll_to_frame):
     
     response_text = create_label(input_container_2, "Lucro/Prejuízo: R$0,00\nPercentual: 0,00%", 0, 0)
     create_button(input_container_2, "CALCULAR", row=0, column=1, command=lambda: definir_calculo(custo.get(), receita.get(), response_text))
-
-    
-    # input_container_3 = ttk.Frame(scrollable_frame)
-    # input_container_4 = ttk.Frame(scrollable_frame)
-    
-    # input_container_3.pack(expand=1, pady=10)
-    # input_container_4.pack(expand=1, pady=50)
     
     text_container = ttk.Frame(scrollable_frame)
     text_container.pack()
@@ -75,16 +69,4 @@ def definir_calculo(custo, receita, response):
     else: 
         lucro(custo, receita, response)
         
-        
-def lucro(custo, receita, response):
-    percentual = (float(custo) / float(receita)) * 100 
-    lucro = float(receita) - float(custo)
-    
-    response.config(text="Lucro: R$" + str(lucro) + "\nPercentual de Lucro: " + str(percentual) + "%")
-    
-    
-def prejuizo(custo, receita, response):
-    percentual = ((float(receita) / float(custo)) - 1) * 100 * -1
-    prejuizo = float(custo) - float(receita)
-    
-    response.config(text="Prejuízo: R$" + str(prejuizo) + "\nPercentual de Prejuízo: " + str(percentual) + "%")
+       

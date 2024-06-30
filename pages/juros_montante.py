@@ -7,6 +7,7 @@ from components.text import text
 from components.label import create_label
 from components.input import create_input
 from components.button import create_button
+from funcoes import calcular_montante, calcular_juros_simples, calcular_juros_compostos
 
 
 def juros_montante_page(container, mostrar_pagina, add_scroll_to_frame):
@@ -93,17 +94,6 @@ def juros_montante_page(container, mostrar_pagina, add_scroll_to_frame):
     
     response_text_simples = create_label(input_container_2, "O montante com juros simples é: R$0,00", 0, 0)
     create_button(input_container_2, "CALCULAR", row=0, column=1, command=lambda: calcular_juros_simples(investimento_simples.get(), juros_simples.get(), tempo_simples.get(), response_text_simples))
-    # ttk.Button(input_container_2, text="CALCULAR", command=lambda: juros_simples(investimento.get(), juros.get(), tempo.get(), response_text)).grid(row=0, column=1, padx=10)
-    
-    
-    
-    # input_container_3 = ttk.Frame(scrollable_frame)
-    # input_container_4 = ttk.Frame(scrollable_frame)
-    
-    # input_container_3.pack(expand=1, pady=10)
-    # input_container_4.pack(expand=1, pady=50)
-    
-
 
 
     simples_text_container = ttk.Frame(scrollable_frame)
@@ -179,56 +169,5 @@ def juros_montante_page(container, mostrar_pagina, add_scroll_to_frame):
 
 
     return frame
-
-
-
-def calcular_montante(capital, taxa_juros, tempo, response):
-    montante = float(capital) * (1 + (float(taxa_juros) / 100)) ** float(tempo)
-    response.config(text="O montante é: R$" + str(round(montante, 2)))
-
-def calcular_juros_simples(valor_principal, taxa_juros, tempo, response):
-    juros = float(valor_principal) * (float(taxa_juros) / 100) * float(tempo)
-    montante = float(valor_principal) + float(juros)
-    response.config(text="O montante com juros simples é: R$" + str(round(montante, 2)))
-
-def calcular_juros_compostos(valor_principal, taxa_juros, tempo, response):
-    montante = float(valor_principal) * ((1 + float(taxa_juros) / 100) ** float(tempo))
-    response.config(text="O montante com juros composetos é: R$" + str(round(montante, 2)))
-
-
-
-
-
-
-# Juros Simples
-
-
-
-
-
-# ---------------------------------------------------------------------------------------
-
-
-
-
-# ############################################################
-# #                          Juros Compostos                                  #
-# ############################################################
-
-
-# ---------------------------------------------------------------------------------------
-
-
-
-# ############################################################
-# #                          Fórmula do Montante                                #
-# ############################################################
-
-
-
-# -------------------------------------------------------------------------------------
-
-
-
 
 

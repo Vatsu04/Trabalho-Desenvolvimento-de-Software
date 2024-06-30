@@ -7,6 +7,7 @@ from components.text import text
 from components.label import create_label
 from components.input import create_input
 from components.button import create_button
+from funcoes import calcular_vpl_handler
 
 def vpl_page(container, mostrar_pagina, add_scroll_to_frame):
     frame = ttk.Frame(container)
@@ -58,18 +59,3 @@ def vpl_page(container, mostrar_pagina, add_scroll_to_frame):
     text(text_container, "O Valor Presente Líquido é essencial para a tomada de decisões de investimento, oferecendo uma análise quantitativa que leva em consideração o valor temporal do dinheiro. Ao ponderar adequadamente os fluxos de caixa e comparar projetos de forma justa, o VPL ajuda a maximizar o retorno sobre investimentos empresariais e a tomar decisões financeiras mais informadas.")
 
     return frame
-
-def calcular_vpl(taxa, fluxo_de_caixa, investimento_inicial):
-    vpl = -investimento_inicial 
-    for i, fluxo in enumerate(fluxo_de_caixa):
-        vpl += fluxo / (1 + taxa) ** (i + 1)
-    return vpl
-
-def calcular_vpl_handler(taxa, fluxo_caixa_str, investimento_inicial, response_text):
-    taxa = float(taxa) / 100
-    investimento_inicial = float(investimento_inicial)
-    fluxo_de_caixa = [float(valor.strip()) for valor in fluxo_caixa_str.split(',') if valor.strip()]
-    
-    vpl = calcular_vpl(taxa, fluxo_de_caixa, investimento_inicial)
-    
-    response_text.config(text=f"VPL: R${vpl:.2f}")

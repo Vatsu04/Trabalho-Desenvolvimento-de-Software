@@ -7,6 +7,7 @@ from components.text import text
 from components.label import create_label
 from components.input import create_input
 from components.button import create_button
+from funcoes import porcentagem
 
 def porcentagem_page(container, mostrar_pagina, add_scroll_to_frame):
     frame = ttk.Frame(container)
@@ -53,7 +54,3 @@ def porcentagem_page(container, mostrar_pagina, add_scroll_to_frame):
     text(text_container, "A calculadora de porcentagem é uma ferramenta útil e prática para realizar cálculos rápidos e precisos relacionados a percentuais, facilitando análises e decisões em diversas situações.")
 
     return frame
-
-def porcentagem(valor, porcentagem, response_text):
-    resultado = float(valor) * float(porcentagem) / 100
-    response_text.config(text=f"Resultado: R${resultado:.2f}")

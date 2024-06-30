@@ -72,6 +72,6 @@ container.grid_rowconfigure(0, weight=1)
 container.grid_columnconfigure(0, weight=1)
 
 # Mostrar a página inicial
-mostrar_pagina("Matemática Financeira")
+mostrar_pagina("Login")
 
 root.mainloop()
