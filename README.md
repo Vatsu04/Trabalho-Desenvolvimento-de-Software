@@ -5,3 +5,7 @@
 - pip install mysql-connector
 - pip install bcrypt
 - pip install ttkbootstrap
+
+
+## Grupo:
+
