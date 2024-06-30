@@ -12,12 +12,7 @@ from pages.tir import tir_page
 from components.scrollable_frame import add_scroll_to_frame
 
 
-# Interface gráfica com tkinter
-# root = tk.Tk()
-# root.title("Matemática financeira")
-# root.geometry("900x600")
 
-# Interface gráfica com ttkbootstrap e tema "solar"
 root = ttk.Window()
 root.title("Matemática financeira")
 root.geometry("900x600")

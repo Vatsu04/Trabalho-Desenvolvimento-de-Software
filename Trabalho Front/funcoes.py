@@ -5,7 +5,6 @@ from login import login
 import cadastro as cad
 import getpass
 import bcrypt
-# import bcrypt as crypt
 
 
 user_id = ''
@@ -34,41 +33,6 @@ def get_user_id(email):
         print(f"Error: {err}")
         return None
 
-# def log_in():
-#     email = input("Digite seu email: ")
-#     password = getpass.getpass("Digite sua senha: ")
-#     login_successful, result = login.login(email, password)
-#     if login_successful:
-#         id_user = get_user_id(email)
-#         print(f"Login bem-sucedido! ID do usuário: {id_user}")   
-#         return id_user
-#     else:
-#         print(f"Falha no login: {result}")
-#         return False
-
-# def cadastro():
-#     connection = connect()
-#     if not connection:
-#         return
-
-#     nome = input("Digite seu nome: ")
-#     email = input("Digite seu email: ")
-#     if not cad.verificar_email(email):
-#         print("Email inválido.")
-#         return False
-    
-#     senha = getpass.getpass("Digite sua senha: ")
-#     if not cad.verificar_senha(senha):
-#         print("Senha inválida. Deve ter pelo menos 8 caracteres.")
-#         return False
-
-#     hashed_senha = crypt.hashpw(senha.encode('utf-8'), crypt.gensalt())
-#     novo_usuario = cad.Usuario(nome, email, hashed_senha)
-#     cad.cadastrar_usuario(connection, novo_usuario)
-#     connection.close()
-#     user_id = get_user_id(email)
-#     return user_id
-
 class Usuario:
     def __init__(self, nome="", email="", senha=""):
         self.nome = nome
@@ -86,6 +50,11 @@ def cadastrar_usuario(connection, usuario):
     sql = "INSERT INTO usuarios (Nome, Email, Senha) VALUES (%s, %s, %s)"
     cursor.execute(sql, (usuario.nome, usuario.email, usuario.senha))
     connection.commit()
+    
+    cursor.execute("SELECT MAX(Id_Usuario) FROM usuarios")
+    res = cursor.fetchall()
+    global user_id
+    user_id = res[0][0]
     cursor.close()
     print("Usuário cadastrado com sucesso!")
     return True
